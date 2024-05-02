@@ -15,8 +15,13 @@ const columns = [
     sort: true,
   },
   {
-    Header: "Department Name",
+    Header: "Department",
     accessor: "department",
+    sort: true,
+  },
+  {
+    Header: "Designation",
+    accessor: "designation",
     sort: true,
   },
 
@@ -71,11 +76,10 @@ const sizePerPageList = [
     value: data.length,
   },
 ];
-
-const Departments = () => {
+const Designations = () => {
   return (
     <>
-      <PageTitle title={"Department"} subTitle={"Dashboard / Department"} />
+      <PageTitle title={"Designations"} subTitle={"Dashboard / Designations"} />
 
       <Row>
         <Col>
@@ -98,4 +102,4 @@ const Departments = () => {
   );
 };
 
-export default Departments;
+export default Designations;

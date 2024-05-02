@@ -49,10 +49,10 @@ const MENU_ITEMS: MenuItemTypes[] = [
         parentKey: "task-employee",
       },
       {
-        key: "email-read-email",
+        key: "employee-designation",
         label: "Designations",
-        url: "/apps/email/details",
-        parentKey: "apps-email",
+        url: "/task/employee/designation",
+        parentKey: "task-employee",
       },
       {
         key: "email-compose-email",

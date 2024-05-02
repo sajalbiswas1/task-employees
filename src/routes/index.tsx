@@ -25,6 +25,13 @@ const EcommerceDashboard = React.lazy(
 const AnalyticsDashboard = React.lazy(
   () => import("../pages/dashboard/Analytics/")
 );
+// Task
+const Department = React.lazy(
+  () => import("../components/task/employees/Departments/Departments")
+);
+const Designation = React.lazy(
+  () => import("../components/task/employees/Designations/Designations")
+);
 
 // apps
 const CalendarApp = React.lazy(() => import("../pages/apps/Calendar/"));
@@ -36,9 +43,6 @@ const ProjectDetail = React.lazy(
 const ChatApp = React.lazy(() => import("../pages/apps/Chat/"));
 // - email
 const Inbox = React.lazy(() => import("../pages/apps/Email/Inbox"));
-const Employee = React.lazy(
-  () => import("../components/task/employees/Departments/Departments")
-);
 
 const EmailDetail = React.lazy(() => import("../pages/apps/Email/Detail"));
 const EmailCompose = React.lazy(() => import("../pages/apps/Email/Compose"));
@@ -141,13 +145,13 @@ const employeeAppRoutes: RoutesProps = {
     {
       path: "/task/employee/department",
       name: "department",
-      element: <Employee />,
+      element: <Department />,
       route: PrivateRoute,
     },
     {
-      path: "/apps/email/details",
-      name: "Email Details",
-      element: <EmailDetail />,
+      path: "/task/employee/designation",
+      name: "Designation",
+      element: <Designation />,
       route: PrivateRoute,
     },
     {
