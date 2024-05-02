@@ -40,7 +40,7 @@ const MENU_ITEMS: MenuItemTypes[] = [
     key: "task-employee",
     label: "Employees",
     isTitle: false,
-    icon: "mail",
+    icon: "user",
     children: [
       {
         key: "employee-department",

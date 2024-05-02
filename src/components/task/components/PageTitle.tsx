@@ -1,14 +1,7 @@
 import React from "react";
 import { Row, Col, Breadcrumb } from "react-bootstrap";
 
-interface BreadcrumbItems {
-  label: string;
-  path: string;
-  active?: boolean;
-}
-
 interface PageTitleProps {
-  breadCrumbItems: Array<BreadcrumbItems>;
   title: string;
   subTitle: string;
 }
@@ -26,7 +19,12 @@ const PageTitle = (props: PageTitleProps) => {
             <h6 className="">{props.subTitle}</h6>
           </div>
           <div className="page-title-right">
-            <Breadcrumb listProps={{ className: "m-0" }}>
+            <button type="button" className="btn btn-primary">
+              <i className="bi bi-plus-lg me-2"></i>
+              Add Department
+            </button>
+
+            {/* <Breadcrumb listProps={{ className: "m-0" }}>
               <Breadcrumb.Item href="/">Task</Breadcrumb.Item>
 
               {(props.breadCrumbItems || []).map((item, index) => {
@@ -40,7 +38,7 @@ const PageTitle = (props: PageTitleProps) => {
                   </Breadcrumb.Item>
                 );
               })}
-            </Breadcrumb>
+            </Breadcrumb> */}
           </div>
         </div>
       </Col>

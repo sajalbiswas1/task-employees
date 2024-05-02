@@ -231,6 +231,7 @@ const Table = (props: TableProps) => {
         <table
           {...dataTable.getTableProps()}
           className={classNames(
+            "table table-striped",
             "table table-centered react-table",
             props["tableClass"]
           )}
