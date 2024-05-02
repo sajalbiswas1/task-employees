@@ -22,7 +22,7 @@ const columns = [
 
   {
     Header: "Action",
-    accessor: "name",
+    accessor: "action",
     sort: false,
     headerClassName: "text-end",
     Cell: ({ row }: any) => {

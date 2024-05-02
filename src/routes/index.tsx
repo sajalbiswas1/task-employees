@@ -32,6 +32,9 @@ const Department = React.lazy(
 const Designation = React.lazy(
   () => import("../components/task/employees/Designations/Designations")
 );
+const TimeSheet = React.lazy(
+  () => import("../components/task/employees/TimeSheet/TimeSheet")
+);
 
 // apps
 const CalendarApp = React.lazy(() => import("../pages/apps/Calendar/"));
@@ -155,9 +158,9 @@ const employeeAppRoutes: RoutesProps = {
       route: PrivateRoute,
     },
     {
-      path: "/apps/email/compose",
-      name: "Compose Email",
-      element: <EmailCompose />,
+      path: "/task/employee/timeSheet",
+      name: "Timesheet",
+      element: <TimeSheet />,
       route: PrivateRoute,
     },
   ],

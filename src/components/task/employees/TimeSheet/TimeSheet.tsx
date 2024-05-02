@@ -10,18 +10,76 @@ import { records as data } from "./data";
 
 const columns = [
   {
-    Header: "#",
-    accessor: "id",
+    Header: "Name",
+    accessor: "name",
+    sort: true,
+    Cell: ({ row }: any) => {
+      return (
+        <>
+          <div className="d-flex justify-content-start ">
+            <img
+              src={row.original.image}
+              alt=""
+              title="Mat Helme"
+              className="avatar-sm rounded-circle me-2"
+            />
+
+            <span className="">
+              {row.original.name} {row.original.department}
+            </span>
+          </div>
+        </>
+      );
+    },
+  },
+  {
+    Header: "Date",
+    accessor: "date",
+    sort: true,
+    Cell: ({ row }: any) => {
+      const inputDate = new Date(row.original.date);
+      const months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ];
+      const formattedDate = `${inputDate.getDate()} ${
+        months[inputDate.getMonth()]
+      } ${inputDate.getFullYear()}`;
+      return (
+        <>
+          <p className="">{formattedDate}</p>
+        </>
+      );
+    },
+  },
+  {
+    Header: "Projects",
+    accessor: "project",
     sort: true,
   },
   {
-    Header: "Department",
-    accessor: "department",
+    Header: "Assigned Hours",
+    accessor: "assignedHours",
     sort: true,
   },
   {
-    Header: "Designation",
-    accessor: "designation",
+    Header: "Hours",
+    accessor: "hours",
+    sort: true,
+  },
+  {
+    Header: "Description",
+    accessor: "description",
     sort: true,
   },
 
@@ -33,6 +91,7 @@ const columns = [
     Cell: ({ row }: any) => {
       const [showProfileModal, setShowProfileModal] = useState<boolean>(false);
       const handleProfileModalShow = () => setShowProfileModal(true);
+      console.log(row);
       return (
         <Dropdown as="li" className="list-inline-item fs-18">
           <Dropdown.Toggle
@@ -76,10 +135,10 @@ const sizePerPageList = [
     value: data.length,
   },
 ];
-const Designations = () => {
+const TimeSheet = () => {
   return (
     <>
-      <PageTitle title={"Designations"} subTitle={"Dashboard / Designations"} />
+      <PageTitle title={"Time Sheet"} subTitle={"Dashboard / Time Sheet"} />
 
       <Row>
         <Col>
@@ -102,4 +161,4 @@ const Designations = () => {
   );
 };
 
-export default Designations;
+export default TimeSheet;
