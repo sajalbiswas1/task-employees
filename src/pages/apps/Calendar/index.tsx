@@ -159,17 +159,6 @@ const CalendarApp = () => {
         <Col>
           <Card>
             <Card.Body>
-              <IntroCard createNewEvent={createNewEvent} />
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
-
-      <Row>
-        <Col>
-          <Card>
-            <Card.Body>
-              {/* fullcalendar control */}
               <Calendar
                 onDateClick={onDateClick}
                 onEventClick={onEventClick}

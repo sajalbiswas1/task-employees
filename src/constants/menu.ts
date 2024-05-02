@@ -35,6 +35,45 @@ const MENU_ITEMS: MenuItemTypes[] = [
       },
     ],
   },
+  { key: "task", label: "Task", isTitle: true },
+  {
+    key: "task-employee",
+    label: "Employees",
+    isTitle: false,
+    icon: "mail",
+    children: [
+      {
+        key: "employee-department",
+        label: "Departments",
+        url: "/task/employee/department",
+        parentKey: "task-employee",
+      },
+      {
+        key: "email-read-email",
+        label: "Designations",
+        url: "/apps/email/details",
+        parentKey: "apps-email",
+      },
+      {
+        key: "email-compose-email",
+        label: "Timesheet",
+        url: "/apps/email/compose",
+        parentKey: "apps-email",
+      },
+      {
+        key: "email-compose-email",
+        label: "Shift & Schedule",
+        url: "/apps/email/compose",
+        parentKey: "apps-email",
+      },
+      {
+        key: "email-compose-email",
+        label: "Overtime",
+        url: "/apps/email/compose",
+        parentKey: "apps-email",
+      },
+    ],
+  },
   { key: "apps", label: "Apps", isTitle: true },
   {
     key: "apps-calendar",

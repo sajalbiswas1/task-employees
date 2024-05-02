@@ -36,6 +36,10 @@ const ProjectDetail = React.lazy(
 const ChatApp = React.lazy(() => import("../pages/apps/Chat/"));
 // - email
 const Inbox = React.lazy(() => import("../pages/apps/Email/Inbox"));
+const Employee = React.lazy(
+  () => import("../components/task/employees/Departments/Departments")
+);
+
 const EmailDetail = React.lazy(() => import("../pages/apps/Email/Detail"));
 const EmailCompose = React.lazy(() => import("../pages/apps/Email/Compose"));
 // - tasks
@@ -112,7 +116,7 @@ const dashboardRoutes: RoutesProps = {
     },
     {
       path: "/dashboard/ecommerce",
-      name: "Ecommerce",
+      name: "Ecommercexxx",
       element: <EcommerceDashboard />,
       route: PrivateRoute,
     },
@@ -124,6 +128,38 @@ const dashboardRoutes: RoutesProps = {
     },
   ],
 };
+
+// -----------------------------------------
+
+const employeeAppRoutes: RoutesProps = {
+  path: "/task/employee",
+  name: "Employee",
+  route: PrivateRoute,
+  roles: ["Admin"],
+  icon: "mail",
+  children: [
+    {
+      path: "/task/employee/department",
+      name: "department",
+      element: <Employee />,
+      route: PrivateRoute,
+    },
+    {
+      path: "/apps/email/details",
+      name: "Email Details",
+      element: <EmailDetail />,
+      route: PrivateRoute,
+    },
+    {
+      path: "/apps/email/compose",
+      name: "Compose Email",
+      element: <EmailCompose />,
+      route: PrivateRoute,
+    },
+  ],
+};
+
+//--------------------------------------------
 
 const calendarAppRoutes: RoutesProps = {
   path: "/apps/calendar",
@@ -192,6 +228,12 @@ const projectAppRoutes: RoutesProps = {
       element: <ProjectDetail />,
       route: PrivateRoute,
     },
+    {
+      path: "/apps/projects/details",
+      name: "Detaildddd",
+      element: <ProjectDetail />,
+      route: PrivateRoute,
+    },
   ],
 };
 
@@ -227,6 +269,7 @@ const fileAppRoutes: RoutesProps = {
 };
 
 const appRoutes = [
+  employeeAppRoutes,
   calendarAppRoutes,
   chatAppRoutes,
   emailAppRoutes,
