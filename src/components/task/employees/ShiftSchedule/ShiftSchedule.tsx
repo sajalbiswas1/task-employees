@@ -19,6 +19,7 @@ import { records as data } from "./data";
 import AddScheduleModal from "./AddScheduleModal";
 import EditScheduleModal from "./EditScheduleModal";
 import DataModal from "./DataModal";
+import AddDesignation from "../Designations/AddDesignation";
 
 const columns = [
   {
@@ -137,12 +138,35 @@ const sizePerPageList = [
   },
 ];
 const ShiftSchedule = () => {
+  const [showAddScheduleModal, setShowAddScheduleModal] =
+    useState<boolean>(false);
+
+  const handleAddScheduleModalClose = () => setShowAddScheduleModal(false);
+  const handleAddScheduleModalShow = () => setShowAddScheduleModal(true);
   return (
     <>
-      <PageTitle
-        title={"Daily Scheduling"}
-        subTitle={"Dashboard / Employee / Shift Scheduling"}
-      />
+      <div className="d-flex justify-content-between align-items-center">
+        <PageTitle
+          title={"Daily Scheduling"}
+          subTitle={"Dashboard / Employee / Shift Scheduling"}
+        />
+        <Dropdown as="li" className="list-inline-item fs-18 me-3">
+          <Dropdown.Toggle
+            id="dropdown-apps"
+            as="a"
+            className="cursor-pointer text-dark"
+          >
+            <button
+              type="button"
+              className="btn btn-primary rounded-pill me-3"
+              onClick={() => handleAddScheduleModalShow()}
+            >
+              <i className="bi bi-plus-lg me-2"></i>
+              Assign Shift
+            </button>
+          </Dropdown.Toggle>
+        </Dropdown>
+      </div>
 
       {/* Input Form */}
 
@@ -219,6 +243,11 @@ const ShiftSchedule = () => {
           </Card>
         </Col>
       </Row>
+      {/* Show modal */}
+      <AddScheduleModal
+        show={showAddScheduleModal}
+        handleClose={handleAddScheduleModalClose}
+      />
     </>
   );
 };

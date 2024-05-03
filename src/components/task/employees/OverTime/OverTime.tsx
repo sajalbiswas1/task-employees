@@ -7,6 +7,7 @@ import Table from "../../components/Table";
 
 //dummy data
 import { records as data, overtimeCards } from "./data";
+import AddOverTimeModal from "./AddOverTimeModal";
 
 const columns = [
   {
@@ -169,9 +170,27 @@ const sizePerPageList = [
   },
 ];
 const OverTime = () => {
+  const [newTaskModal, setNewTaskModal] = useState<boolean>(false);
+  const toggleNewTaskModal = () => {
+    setNewTaskModal(!newTaskModal);
+  };
+  const handleClick = () => {
+    setNewTaskModal(!newTaskModal);
+  };
   return (
     <>
-      <PageTitle title={"Overtime"} subTitle={"Dashboard / Overtime"} />
+      <div className="d-flex justify-content-between align-items-center">
+        <PageTitle title={"Overtime"} subTitle={"Dashboard / Overtime"} />
+
+        <button
+          type="button"
+          className="btn btn-primary rounded-pill me-3"
+          onClick={handleClick}
+        >
+          <i className="bi bi-plus-lg me-2"></i>
+          Add Overtime
+        </button>
+      </div>
       <Row>
         <div className="container">
           <div className="row">
@@ -219,6 +238,12 @@ const OverTime = () => {
           </Card>
         </Col>
       </Row>
+      {newTaskModal && (
+        <AddOverTimeModal
+          newTaskModal={newTaskModal}
+          toggleNewTaskModal={toggleNewTaskModal}
+        />
+      )}
     </>
   );
 };

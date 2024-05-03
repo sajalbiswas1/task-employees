@@ -8,6 +8,7 @@ import Table from "../../components/Table";
 //dummy data
 import { records as data } from "./data";
 import { Link } from "react-router-dom";
+import AddTodayWorkModal from "./AddTodayWorkModal";
 
 const columns = [
   {
@@ -138,10 +139,27 @@ const sizePerPageList = [
   },
 ];
 const TimeSheet = () => {
+  const [newTaskModal, setNewTaskModal] = useState<boolean>(false);
+  const toggleNewTaskModal = () => {
+    setNewTaskModal(!newTaskModal);
+  };
+  const handleClick = () => {
+    setNewTaskModal(!newTaskModal);
+  };
   return (
     <>
-      <PageTitle title={"Time Sheet"} subTitle={"Dashboard / Time Sheet"} />
+      <div className="d-flex justify-content-between align-items-center">
+        <PageTitle title={"Time Sheet"} subTitle={"Dashboard / Time Sheet"} />
 
+        <button
+          type="button"
+          className="btn btn-primary rounded-pill me-3"
+          onClick={handleClick}
+        >
+          <i className="bi bi-plus-lg me-2"></i>
+          Add Today Work
+        </button>
+      </div>
       <Row>
         <Col>
           <Card>
@@ -160,6 +178,12 @@ const TimeSheet = () => {
           </Card>
         </Col>
       </Row>
+      {newTaskModal && (
+        <AddTodayWorkModal
+          newTaskModal={newTaskModal}
+          toggleNewTaskModal={toggleNewTaskModal}
+        />
+      )}
     </>
   );
 };

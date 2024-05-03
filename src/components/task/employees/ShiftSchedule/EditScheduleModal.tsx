@@ -166,7 +166,7 @@ const EditScheduleModal = ({ show, handleClose }: EditScheduleModalProps) => {
                   id="example-time"
                   type="time"
                   name="time"
-                  defaultValue="2:00"
+                  defaultValue="18:00"
                 />
               </Col>
             </Form.Group>
