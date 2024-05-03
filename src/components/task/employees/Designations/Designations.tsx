@@ -8,6 +8,7 @@ import Table from "../../components/Table";
 //dummy data
 import { records as data } from "./data";
 import AddDesignation from "./AddDesignation";
+import EditDesignations from "./EditDesignations";
 
 const columns = [
   {
@@ -34,26 +35,44 @@ const columns = [
     Cell: ({ row }: any) => {
       const [showProfileModal, setShowProfileModal] = useState<boolean>(false);
       const handleProfileModalShow = () => setShowProfileModal(true);
-      return (
-        <Dropdown as="li" className="list-inline-item fs-18">
-          <Dropdown.Toggle
-            id="dropdown-apps"
-            as="a"
-            className="cursor-pointer text-dark"
-          >
-            <i className="bi bi-three-dots-vertical"></i>
-          </Dropdown.Toggle>
 
-          <Dropdown.Menu className="dropdown-menu-end">
-            <Dropdown.Item href="#/" onClick={() => handleProfileModalShow()}>
-              {" "}
-              <i className="bi uil-edit-alt fs-18 me-2"></i>Edit
-            </Dropdown.Item>
-            <Dropdown.Item href="#/">
-              <i className="bi uil-trash fs-18 me-2"></i>Delete
-            </Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
+      const [newTaskModal, setNewTaskModal] = useState<boolean>(false);
+      const toggleNewTaskModal = () => {
+        setNewTaskModal(!newTaskModal);
+      };
+      const handleClick = () => {
+        setNewTaskModal(!newTaskModal);
+      };
+      return (
+        <>
+          <Dropdown as="li" className="list-inline-item fs-18">
+            <Dropdown.Toggle
+              id="dropdown-apps"
+              as="a"
+              className="cursor-pointer text-dark"
+            >
+              <i className="bi bi-three-dots-vertical"></i>
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu className="dropdown-menu-end">
+              <Dropdown.Item href="#/" onClick={() => handleProfileModalShow()}>
+                {" "}
+                <div onClick={handleClick}>
+                  <i className="bi uil-edit-alt fs-18 me-2"></i>Edit
+                </div>
+              </Dropdown.Item>
+              <Dropdown.Item href="#/">
+                <i className="bi uil-trash fs-18 me-2"></i>Delete
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+          {newTaskModal && (
+            <EditDesignations
+              newTaskModal={newTaskModal}
+              toggleNewTaskModal={toggleNewTaskModal}
+            />
+          )}
+        </>
       );
     },
   },
