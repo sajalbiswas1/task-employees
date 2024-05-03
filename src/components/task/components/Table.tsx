@@ -105,6 +105,7 @@ interface TableProps {
   searchBoxClass?: string;
   tableClass?: string;
   theadClass?: string;
+  showDisplayPage?: boolean;
 }
 
 const Table = (props: TableProps) => {
@@ -220,7 +221,7 @@ const Table = (props: TableProps) => {
           searchBoxClass={props["searchBoxClass"]}
         />
       )}
-      {pagination && (
+      {props.showDisplayPage && pagination && (
         <Pagination
           tableProps={dataTable}
           sizePerPageList={sizePerPageList}

@@ -92,6 +92,7 @@ const Designations = () => {
                 sizePerPageList={sizePerPageList}
                 isSortable={true}
                 pagination={true}
+                showDisplayPage={true}
                 // isExpandable={true}
               />
             </Card.Body>

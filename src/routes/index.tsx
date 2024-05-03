@@ -35,6 +35,9 @@ const Designation = React.lazy(
 const TimeSheet = React.lazy(
   () => import("../components/task/employees/TimeSheet/TimeSheet")
 );
+const ShiftSchedule = React.lazy(
+  () => import("../components/task/employees/ShiftSchedule/ShiftSchedule")
+);
 
 // apps
 const CalendarApp = React.lazy(() => import("../pages/apps/Calendar/"));
@@ -161,6 +164,12 @@ const employeeAppRoutes: RoutesProps = {
       path: "/task/employee/timeSheet",
       name: "Timesheet",
       element: <TimeSheet />,
+      route: PrivateRoute,
+    },
+    {
+      path: "/task/employee/shiftSchedule",
+      name: "ShiftSchedule",
+      element: <ShiftSchedule />,
       route: PrivateRoute,
     },
   ],

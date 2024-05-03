@@ -61,10 +61,10 @@ const MENU_ITEMS: MenuItemTypes[] = [
         parentKey: "task-employee",
       },
       {
-        key: "email-compose-email",
+        key: "employee-shiftSchedule",
         label: "Shift & Schedule",
-        url: "/apps/email/compose",
-        parentKey: "apps-email",
+        url: "/task/employee/shiftSchedule",
+        parentKey: "task-employee",
       },
       {
         key: "email-compose-email",
