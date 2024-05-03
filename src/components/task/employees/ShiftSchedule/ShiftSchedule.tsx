@@ -18,6 +18,7 @@ import Table from "../../components/Table";
 import { records as data } from "./data";
 import AddScheduleModal from "./AddScheduleModal";
 import EditScheduleModal from "./EditScheduleModal";
+import DataModal from "./DataModal";
 
 const columns = [
   {
@@ -48,45 +49,7 @@ const columns = [
     accessor: "day1",
     sort: false,
     Cell: ({ row }: any) => {
-      const [showVoicelModal, setShowVoicelModal] = useState<boolean>(false);
-
-      const handleVoicelModalClose = () => setShowVoicelModal(false);
-      const handleVoicelModalShow = () => setShowVoicelModal(true);
-      return (
-        <>
-          <div>
-            {row.original.day1[0]?.scheduleShift ? (
-              <>
-                <Dropdown as="li" className="list-inline-item fs-18 me-3">
-                  <Dropdown.Toggle
-                    id="dropdown-apps"
-                    as="a"
-                    className="cursor-pointer text-dark"
-                  >
-                    <div
-                      id="scheduleShift"
-                      onClick={() => handleVoicelModalShow()}
-                    >
-                      <span>6:30 am - 9:30 pm (14 hrs 15 mins)</span>
-                      <br />
-                      <span> Web Designer -SMARTHR</span>
-                    </div>
-                  </Dropdown.Toggle>
-                </Dropdown>
-
-                <EditScheduleModal
-                  show={showVoicelModal}
-                  handleClose={handleVoicelModalClose}
-                />
-              </>
-            ) : (
-              <>
-                <i className="bi bi-plus-square-dotted display-6"></i>
-              </>
-            )}
-          </div>
-        </>
-      );
+      return <DataModal data={row.original.day1[0]} />;
     },
   },
   {
@@ -94,45 +57,7 @@ const columns = [
     accessor: "day2",
     sort: false,
     Cell: ({ row }: any) => {
-      const [showVideocallModal, setShowVideocallModal] =
-        useState<boolean>(false);
-
-      const handleVideocallModalClose = () => setShowVideocallModal(false);
-      const handleVideocallModalShow = () => setShowVideocallModal(true);
-      return (
-        <>
-          <div>
-            {row.original.day2[0]?.scheduleShift ? (
-              <>
-                <div id="scheduleShift">
-                  <span>6:30 am - 9:30 pm (14 hrs 15 mins)</span>
-                  <br />
-                  <span> Web Designer -SMARTHR</span>
-                </div>
-              </>
-            ) : (
-              <>
-                <Dropdown as="li" className="list-inline-item fs-18 me-3">
-                  <Dropdown.Toggle
-                    id="dropdown-apps"
-                    as="a"
-                    className="cursor-pointer text-dark"
-                  >
-                    <i
-                      className="bi bi-plus-square-dotted display-6"
-                      onClick={() => handleVideocallModalShow()}
-                    ></i>
-                  </Dropdown.Toggle>
-                </Dropdown>
-              </>
-            )}
-          </div>
-          <AddScheduleModal
-            show={showVideocallModal}
-            handleClose={handleVideocallModalClose}
-          />
-        </>
-      );
+      return <DataModal data={row.original.day2[0]} />;
     },
   },
   {
@@ -140,25 +65,7 @@ const columns = [
     accessor: "day3",
     sort: false,
     Cell: ({ row }: any) => {
-      return (
-        <>
-          <div>
-            {row.original.day3[0]?.scheduleShift ? (
-              <>
-                <div id="scheduleShift">
-                  <span>6:30 am - 9:30 pm (14 hrs 15 mins)</span>
-                  <br />
-                  <span> Web Designer -SMARTHR</span>
-                </div>
-              </>
-            ) : (
-              <>
-                <i className="bi bi-plus-square-dotted display-6"></i>
-              </>
-            )}
-          </div>
-        </>
-      );
+      return <DataModal data={row.original.day3[0]} />;
     },
   },
   {
@@ -166,25 +73,7 @@ const columns = [
     accessor: "day4",
     sort: false,
     Cell: ({ row }: any) => {
-      return (
-        <>
-          <div>
-            {row.original.day4[0]?.scheduleShift ? (
-              <>
-                <div id="scheduleShift">
-                  <span>6:30 am - 9:30 pm (14 hrs 15 mins)</span>
-                  <br />
-                  <span> Web Designer -SMARTHR</span>
-                </div>
-              </>
-            ) : (
-              <>
-                <i className="bi bi-plus-square-dotted display-6"></i>
-              </>
-            )}
-          </div>
-        </>
-      );
+      return <DataModal data={row.original.day4[0]} />;
     },
   },
   {
@@ -192,25 +81,7 @@ const columns = [
     accessor: "day5",
     sort: false,
     Cell: ({ row }: any) => {
-      return (
-        <>
-          <div>
-            {row.original.day5[0]?.scheduleShift ? (
-              <>
-                <div id="scheduleShift">
-                  <span>6:30 am - 9:30 pm (14 hrs 15 mins)</span>
-                  <br />
-                  <span> Web Designer -SMARTHR</span>
-                </div>
-              </>
-            ) : (
-              <>
-                <i className="bi bi-plus-square-dotted display-6"></i>
-              </>
-            )}
-          </div>
-        </>
-      );
+      return <DataModal data={row.original.day5[0]} />;
     },
   },
   {
@@ -218,25 +89,7 @@ const columns = [
     accessor: "day6",
     sort: false,
     Cell: ({ row }: any) => {
-      return (
-        <>
-          <div>
-            {row.original.day6[0]?.scheduleShift ? (
-              <>
-                <div id="scheduleShift">
-                  <span>6:30 am - 9:30 pm (14 hrs 15 mins)</span>
-                  <br />
-                  <span> Web Designer -SMARTHR</span>
-                </div>
-              </>
-            ) : (
-              <>
-                <i className="bi bi-plus-square-dotted display-6"></i>
-              </>
-            )}
-          </div>
-        </>
-      );
+      return <DataModal data={row.original.day6[0]} />;
     },
   },
   {
@@ -244,25 +97,7 @@ const columns = [
     accessor: "day7",
     sort: false,
     Cell: ({ row }: any) => {
-      return (
-        <>
-          <div>
-            {row.original.day7[0]?.scheduleShift ? (
-              <>
-                <div id="scheduleShift">
-                  <span>6:30 am - 9:30 pm (14 hrs 15 mins)</span>
-                  <br />
-                  <span> Web Designer -SMARTHR</span>
-                </div>
-              </>
-            ) : (
-              <>
-                <i className="bi bi-plus-square-dotted display-6"></i>
-              </>
-            )}
-          </div>
-        </>
-      );
+      return <DataModal data={row.original.day7[0]} />;
     },
   },
   {
@@ -270,25 +105,7 @@ const columns = [
     accessor: "day8",
     sort: false,
     Cell: ({ row }: any) => {
-      return (
-        <>
-          <div>
-            {row.original.day8[0]?.scheduleShift ? (
-              <>
-                <div id="scheduleShift">
-                  <span>6:30 am - 9:30 pm (14 hrs 15 mins)</span>
-                  <br />
-                  <span> Web Designer -SMARTHR</span>
-                </div>
-              </>
-            ) : (
-              <>
-                <i className="bi bi-plus-square-dotted display-6"></i>
-              </>
-            )}
-          </div>
-        </>
-      );
+      return <DataModal data={row.original.day8[0]} />;
     },
   },
   {
@@ -296,25 +113,7 @@ const columns = [
     accessor: "day9",
     sort: false,
     Cell: ({ row }: any) => {
-      return (
-        <>
-          <div>
-            {row.original.day9[0]?.scheduleShift ? (
-              <>
-                <div id="scheduleShift">
-                  <span>6:30 am - 9:30 pm (14 hrs 15 mins)</span>
-                  <br />
-                  <span> Web Designer -SMARTHR</span>
-                </div>
-              </>
-            ) : (
-              <>
-                <i className="bi bi-plus-square-dotted display-6"></i>
-              </>
-            )}
-          </div>
-        </>
-      );
+      return <DataModal data={row.original.day9[0]} />;
     },
   },
 ];
@@ -353,7 +152,7 @@ const ShiftSchedule = () => {
             <div className="row">
               <Form.Group as={Col} className="mb-3 ">
                 <Form.Label column lg={2} htmlFor="simpleinput">
-                  Text
+                  Employee
                 </Form.Label>
                 <Col lg={10}>
                   <Form.Control

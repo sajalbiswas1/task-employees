@@ -75,7 +75,13 @@ const sizePerPageList = [
 const Departments = () => {
   return (
     <>
-      <PageTitle title={"Department"} subTitle={"Dashboard / Department"} />
+      <div className="d-flex justify-content-between align-items-center">
+        <PageTitle title={"Department"} subTitle={"Dashboard / Department"} />
+        <button type="button" className="btn btn-primary rounded-pill me-3">
+          <i className="bi bi-plus-lg me-2"></i>
+          Add Department
+        </button>
+      </div>
 
       <Row>
         <Col>

@@ -6,40 +6,40 @@ import PageTitle from "../../components/PageTitle";
 import Table from "../../components/Table";
 
 //dummy data
-import { records as data } from "./data";
-import { Link } from "react-router-dom";
+import { records as data, overtimeCards } from "./data";
 
 const columns = [
   {
-    Header: "Name",
-    accessor: "name",
+    Header: "#",
+    accessor: "id",
+    sort: true,
+  },
+  {
+    Header: "Department",
+    accessor: "department",
     sort: true,
     Cell: ({ row }: any) => {
       return (
         <>
           <div className="d-flex justify-content-start ">
-            <Link to={"/pages/profile"}></Link>
             <img
               src={row.original.image}
               alt=""
               title="Mat Helme"
               className="avatar-sm rounded-circle me-2"
             />
-
-            <span className="">
-              {row.original.name} {row.original.department}
-            </span>
+            <span className="">{row.original.name}</span>
           </div>
         </>
       );
     },
   },
   {
-    Header: "Date",
-    accessor: "date",
+    Header: "OT Date",
+    accessor: "otDate",
     sort: true,
     Cell: ({ row }: any) => {
-      const inputDate = new Date(row.original.date);
+      const inputDate = new Date(row.original.otDate);
       const months = [
         "January",
         "February",
@@ -65,24 +65,56 @@ const columns = [
     },
   },
   {
-    Header: "Projects",
-    accessor: "project",
+    Header: "OT Hour",
+    accessor: "otHours",
     sort: true,
   },
   {
-    Header: "Assigned Hours",
-    accessor: "assignedHours",
-    sort: true,
-  },
-  {
-    Header: "Hours",
-    accessor: "hours",
+    Header: "OT Type",
+    accessor: "otType",
     sort: true,
   },
   {
     Header: "Description",
     accessor: "description",
     sort: true,
+  },
+  {
+    Header: "Status",
+    accessor: "status",
+    sort: true,
+    Cell: ({ row }: any) => {
+      return (
+        <>
+          <div>
+            <button className="border bg-white rounded-pill ">
+              <i className="bi  uil-compact-disc me-1"></i>
+              <span className="fs-5">new</span>
+            </button>
+          </div>
+        </>
+      );
+    },
+  },
+  {
+    Header: "Approved By",
+    accessor: "approved",
+    sort: true,
+    Cell: ({ row }: any) => {
+      return (
+        <>
+          <div className="d-flex justify-content-start ">
+            <img
+              src={row.original.approvedImage}
+              alt=""
+              title="Mat Helme"
+              className="avatar-sm rounded-circle me-2"
+            />
+            <span className="">{row.original.approvedName}</span>
+          </div>
+        </>
+      );
+    },
   },
 
   {
@@ -93,7 +125,6 @@ const columns = [
     Cell: ({ row }: any) => {
       const [showProfileModal, setShowProfileModal] = useState<boolean>(false);
       const handleProfileModalShow = () => setShowProfileModal(true);
-      console.log(row);
       return (
         <Dropdown as="li" className="list-inline-item fs-18">
           <Dropdown.Toggle
@@ -137,11 +168,39 @@ const sizePerPageList = [
     value: data.length,
   },
 ];
-const TimeSheet = () => {
+const OverTime = () => {
   return (
     <>
-      <PageTitle title={"Time Sheet"} subTitle={"Dashboard / Time Sheet"} />
-
+      <PageTitle title={"Overtime"} subTitle={"Dashboard / Overtime"} />
+      <Row>
+        <div className="container">
+          <div className="row">
+            {overtimeCards.map((card) => {
+              return (
+                <>
+                  <div key={card.id} className="col">
+                    <Col>
+                      <div className="card-body mb-3 bg-white text-center">
+                        <h5 className="card-title fw-bold">{card.name}</h5>
+                        <p className="card-text fw-bold fs-3">
+                          {card.number}
+                          {card.month ? (
+                            <>
+                              <span className="fs-6"> This month</span>
+                            </>
+                          ) : (
+                            ""
+                          )}
+                        </p>
+                      </div>
+                    </Col>
+                  </div>
+                </>
+              );
+            })}
+          </div>
+        </div>
+      </Row>
       <Row>
         <Col>
           <Card>
@@ -164,4 +223,4 @@ const TimeSheet = () => {
   );
 };
 
-export default TimeSheet;
+export default OverTime;

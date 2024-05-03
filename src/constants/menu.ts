@@ -67,10 +67,10 @@ const MENU_ITEMS: MenuItemTypes[] = [
         parentKey: "task-employee",
       },
       {
-        key: "email-compose-email",
+        key: "employee-overtime",
         label: "Overtime",
-        url: "/apps/email/compose",
-        parentKey: "apps-email",
+        url: "/task/employee/overtime",
+        parentKey: "task-employee",
       },
     ],
   },

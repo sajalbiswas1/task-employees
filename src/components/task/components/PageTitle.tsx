@@ -18,13 +18,10 @@ const PageTitle = (props: PageTitleProps) => {
             <h3 className="page-title">{props.title}</h3>
             <h6 className="">{props.subTitle}</h6>
           </div>
-          <div className="page-title-right">
-            <button type="button" className="btn btn-primary">
-              <i className="bi bi-plus-lg me-2"></i>
-              Add Department
-            </button>
+          {/* <div className="page-title-right">
+            
 
-            {/* <Breadcrumb listProps={{ className: "m-0" }}>
+            <Breadcrumb listProps={{ className: "m-0" }}>
               <Breadcrumb.Item href="/">Task</Breadcrumb.Item>
 
               {(props.breadCrumbItems || []).map((item, index) => {
@@ -38,8 +35,8 @@ const PageTitle = (props: PageTitleProps) => {
                   </Breadcrumb.Item>
                 );
               })}
-            </Breadcrumb> */}
-          </div>
+            </Breadcrumb>
+          </div> */}
         </div>
       </Col>
     </Row>

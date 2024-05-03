@@ -10,12 +10,12 @@ import {
   Button,
 } from "react-bootstrap";
 
-interface VoicecallModalProps {
+interface EditScheduleModalProps {
   show: boolean;
   handleClose: () => void;
 }
 
-const EditScheduleModal = ({ show, handleClose }: VoicecallModalProps) => {
+const EditScheduleModal = ({ show, handleClose }: EditScheduleModalProps) => {
   return (
     <Modal
       //   centered
@@ -187,23 +187,90 @@ const EditScheduleModal = ({ show, handleClose }: VoicecallModalProps) => {
             </Form.Group>
           </div>
           <div className="row p-10" style={{ marginLeft: "16px" }}>
-            <Form.Group as={Col} className="mb-3">
-              <Form.Label column lg={2} htmlFor="example-time">
+            <Form.Group as={Row} className="mb-3">
+              <Form.Label lg={2}>
                 <div className="d-flex">
                   Break_Time <span className="text-danger">*</span>
                 </div>
               </Form.Label>
-              <Col lg={3}>
-                <Form.Control
-                  id="example-time"
-                  type="time"
-                  name="time"
-                  defaultValue="09:04"
-                />
+              <Col lg={4}>
+                <Form.Control type="tel" name="tel" defaultValue="45" />
               </Col>
             </Form.Group>
           </div>
           <div className="col p-10" style={{ marginLeft: "30px" }}>
+            <Form.Group as={Col} className="mb-3">
+              {/* <Form.Label column lg={2} htmlFor="example-time">
+                Publish
+              </Form.Label> */}
+              <Col lg={3}>
+                <Form.Check // prettier-ignore
+                  type="checkbox"
+                  label="Recuter Shift"
+                />
+              </Col>
+            </Form.Group>
+            <div className="d-flex">
+              <Form.Check
+                className="me-1" // prettier-ignore
+                type="checkbox"
+                label="M"
+                defaultChecked
+              />
+              <Form.Check
+                className="me-1" // prettier-ignore
+                type="checkbox"
+                label="T"
+                defaultChecked
+              />
+              <Form.Check
+                className="me-1" // prettier-ignore
+                type="checkbox"
+                label="W"
+                defaultChecked
+              />
+              <Form.Check
+                className="me-1" // prettier-ignore
+                type="checkbox"
+                label="T"
+                defaultChecked
+              />
+              <Form.Check
+                className="me-1" // prettier-ignore
+                type="checkbox"
+                label="F"
+                defaultChecked
+              />
+              <Form.Check
+                className="me-1" // prettier-ignore
+                type="checkbox"
+                label="S"
+              />
+              <Form.Check
+                className="me-1" // prettier-ignore
+                type="checkbox"
+                label="S"
+              />
+            </div>
+            <Form.Group as={Col} className="mb-3 mw-100">
+              <Form.Label lg={2} htmlFor="example-date">
+                End On <span className="text-danger">*</span>
+              </Form.Label>
+              <Col lg={10}>
+                <Form.Control id="example-date" type="date" name="date" />
+              </Col>
+            </Form.Group>
+            <Form.Group as={Col} className="mb-3">
+              {/* <Form.Label column lg={2} htmlFor="example-time">
+                Publish
+              </Form.Label> */}
+              <Col lg={3}>
+                <Form.Check // prettier-ignore
+                  type="checkbox"
+                  label="Indefinite"
+                />
+              </Col>
+            </Form.Group>
             <Form.Group as={Col} className="mb-3">
               <Form.Label column lg={2} htmlFor="example-time">
                 Accept Extra Hours
