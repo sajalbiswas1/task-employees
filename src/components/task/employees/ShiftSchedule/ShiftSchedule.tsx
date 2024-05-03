@@ -16,6 +16,8 @@ import Table from "../../components/Table";
 
 //dummy data
 import { records as data } from "./data";
+import AddScheduleModal from "./AddScheduleModal";
+import EditScheduleModal from "./EditScheduleModal";
 
 const columns = [
   {
@@ -46,16 +48,36 @@ const columns = [
     accessor: "day1",
     sort: false,
     Cell: ({ row }: any) => {
+      const [showVoicelModal, setShowVoicelModal] = useState<boolean>(false);
+
+      const handleVoicelModalClose = () => setShowVoicelModal(false);
+      const handleVoicelModalShow = () => setShowVoicelModal(true);
       return (
         <>
           <div>
             {row.original.day1[0]?.scheduleShift ? (
               <>
-                <div id="scheduleShift">
-                  <span>6:30 am - 9:30 pm (14 hrs 15 mins)</span>
-                  <br />
-                  <span> Web Designer -SMARTHR</span>
-                </div>
+                <Dropdown as="li" className="list-inline-item fs-18 me-3">
+                  <Dropdown.Toggle
+                    id="dropdown-apps"
+                    as="a"
+                    className="cursor-pointer text-dark"
+                  >
+                    <div
+                      id="scheduleShift"
+                      onClick={() => handleVoicelModalShow()}
+                    >
+                      <span>6:30 am - 9:30 pm (14 hrs 15 mins)</span>
+                      <br />
+                      <span> Web Designer -SMARTHR</span>
+                    </div>
+                  </Dropdown.Toggle>
+                </Dropdown>
+
+                <EditScheduleModal
+                  show={showVoicelModal}
+                  handleClose={handleVoicelModalClose}
+                />
               </>
             ) : (
               <>
@@ -72,6 +94,11 @@ const columns = [
     accessor: "day2",
     sort: false,
     Cell: ({ row }: any) => {
+      const [showVideocallModal, setShowVideocallModal] =
+        useState<boolean>(false);
+
+      const handleVideocallModalClose = () => setShowVideocallModal(false);
+      const handleVideocallModalShow = () => setShowVideocallModal(true);
       return (
         <>
           <div>
@@ -85,10 +112,25 @@ const columns = [
               </>
             ) : (
               <>
-                <i className="bi bi-plus-square-dotted display-6"></i>
+                <Dropdown as="li" className="list-inline-item fs-18 me-3">
+                  <Dropdown.Toggle
+                    id="dropdown-apps"
+                    as="a"
+                    className="cursor-pointer text-dark"
+                  >
+                    <i
+                      className="bi bi-plus-square-dotted display-6"
+                      onClick={() => handleVideocallModalShow()}
+                    ></i>
+                  </Dropdown.Toggle>
+                </Dropdown>
               </>
             )}
           </div>
+          <AddScheduleModal
+            show={showVideocallModal}
+            handleClose={handleVideocallModalClose}
+          />
         </>
       );
     },
@@ -309,7 +351,7 @@ const ShiftSchedule = () => {
         <Row>
           <Col>
             <div className="row">
-              <Form.Group as={Col} className="mb-3">
+              <Form.Group as={Col} className="mb-3 ">
                 <Form.Label column lg={2} htmlFor="simpleinput">
                   Text
                 </Form.Label>

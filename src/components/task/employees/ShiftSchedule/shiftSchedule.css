@@ -1,8 +1,13 @@
 #scheduleShift {
   border-style: dashed;
-  border-width: 2px;
+  border-width: 1px;
   border-radius: 5px;
-  border-color: rgb(149, 241, 149);
+  border-color: rgb(55, 143, 55);
   font-size: 12px;
   padding: 8px;
+}
+#addScheduleTitle {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 15px;
 }
