@@ -20,6 +20,7 @@ import AddScheduleModal from "./AddScheduleModal";
 import EditScheduleModal from "./EditScheduleModal";
 import DataModal from "./DataModal";
 import AddDesignation from "../Designations/AddDesignation";
+import { Link } from "react-router-dom";
 
 const columns = [
   {
@@ -150,22 +151,27 @@ const ShiftSchedule = () => {
           title={"Daily Scheduling"}
           subTitle={"Dashboard / Employee / Shift Scheduling"}
         />
-        <Dropdown as="li" className="list-inline-item fs-18 me-3">
-          <Dropdown.Toggle
-            id="dropdown-apps"
-            as="a"
-            className="cursor-pointer text-dark"
-          >
-            <button
-              type="button"
-              className="btn btn-primary rounded-pill me-3"
-              onClick={() => handleAddScheduleModalShow()}
+        <div>
+          <Dropdown as="li" className="list-inline-item fs-18 me-3">
+            <Dropdown.Toggle
+              id="dropdown-apps"
+              as="a"
+              className="cursor-pointer text-dark"
             >
-              <i className="bi bi-plus-lg me-2"></i>
-              Assign Shift
-            </button>
-          </Dropdown.Toggle>
-        </Dropdown>
+              <button
+                type="button"
+                className="btn btn-primary rounded-pill "
+                onClick={() => handleAddScheduleModalShow()}
+              >
+                <i className="bi bi-plus-lg me-2"></i>
+                Assign Shift
+              </button>
+            </Dropdown.Toggle>
+          </Dropdown>
+          <Link to={"/task/employee/shift"}>
+            <button className="btn btn-primary rounded-pill me-1">Shift</button>
+          </Link>
+        </div>
       </div>
 
       {/* Input Form */}

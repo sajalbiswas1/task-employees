@@ -1,21 +1,19 @@
 import React from "react";
 import { Modal } from "react-bootstrap";
-import {
-  Row,
-  Col,
-  Card,
-  Form,
-  FloatingLabel,
-  InputGroup,
-  Button,
-} from "react-bootstrap";
+import { Row, Col, Form } from "react-bootstrap";
 
 interface EditScheduleModalProps {
   show: boolean;
   handleClose: () => void;
+  rowData: any;
 }
 
-const EditScheduleModal = ({ show, handleClose }: EditScheduleModalProps) => {
+const EditScheduleModal = ({
+  show,
+  handleClose,
+  rowData,
+}: EditScheduleModalProps) => {
+  console.log("row data", rowData);
   return (
     <Modal
       //   centered
@@ -38,8 +36,8 @@ const EditScheduleModal = ({ show, handleClose }: EditScheduleModalProps) => {
                   Department <span className="text-danger">*</span>
                 </div>
               </Form.Label>
-              <Col lg={10}>
-                <Form.Select>
+              <Col lg={11} xs={11}>
+                <Form.Select defaultValue={rowData.department}>
                   <option>All Development</option>
                   <option>Finance</option>
                   <option>Finance Management</option>
@@ -56,8 +54,8 @@ const EditScheduleModal = ({ show, handleClose }: EditScheduleModalProps) => {
                   <span className="text-danger">*</span>
                 </div>
               </Form.Label>
-              <Col lg={10}>
-                <Form.Select>
+              <Col lg={11} xs={11}>
+                <Form.Select defaultValue={rowData.employeeName}>
                   <option>Rish mail</option>
                   <option>Jhone Smith</option>
                   <option>Finance Management</option>
@@ -72,8 +70,13 @@ const EditScheduleModal = ({ show, handleClose }: EditScheduleModalProps) => {
               <Form.Label lg={2} htmlFor="example-date">
                 Date
               </Form.Label>
-              <Col lg={10}>
-                <Form.Control id="example-date" type="date" name="date" />
+              <Col lg={11} xs={11}>
+                <Form.Control
+                  id="example-date"
+                  type="date"
+                  name="date"
+                  defaultValue={rowData.date}
+                />
               </Col>
             </Form.Group>
             <Form.Group as={Col} className="mb-3">
@@ -82,8 +85,8 @@ const EditScheduleModal = ({ show, handleClose }: EditScheduleModalProps) => {
                   Shifts <span className="text-danger">*</span>
                 </div>
               </Form.Label>
-              <Col lg={10}>
-                <Form.Select>
+              <Col lg={11} xs={11}>
+                <Form.Select defaultValue={rowData.shift}>
                   <option>10'o clock shift</option>
                   <option>10:30 Shift</option>
                   <option>Daily Shift</option>
@@ -99,12 +102,12 @@ const EditScheduleModal = ({ show, handleClose }: EditScheduleModalProps) => {
                   Min Start Time <span className="text-danger">*</span>
                 </div>
               </Form.Label>
-              <Col lg={10}>
+              <Col lg={10} xs={10}>
                 <Form.Control
                   id="example-time"
                   type="time"
                   name="time"
-                  defaultValue="21:06"
+                  defaultValue={rowData.minStartTime}
                 />
               </Col>
             </Form.Group>
@@ -114,12 +117,12 @@ const EditScheduleModal = ({ show, handleClose }: EditScheduleModalProps) => {
                   Start Time <span className="text-danger">*</span>
                 </div>
               </Form.Label>
-              <Col lg={10}>
+              <Col lg={10} xs={10}>
                 <Form.Control
                   id="example-time"
                   type="time"
                   name="time"
-                  defaultValue="12:00"
+                  defaultValue={rowData.startTime}
                 />
               </Col>
             </Form.Group>
@@ -129,12 +132,12 @@ const EditScheduleModal = ({ show, handleClose }: EditScheduleModalProps) => {
                   Max Start Time <span className="text-danger">*</span>
                 </div>
               </Form.Label>
-              <Col lg={10}>
+              <Col lg={10} xs={10}>
                 <Form.Control
                   id="example-time"
                   type="time"
                   name="time"
-                  defaultValue="06:11"
+                  defaultValue={rowData.maxStartTime}
                 />
               </Col>
             </Form.Group>
@@ -146,12 +149,12 @@ const EditScheduleModal = ({ show, handleClose }: EditScheduleModalProps) => {
                   Min End Time <span className="text-danger">*</span>
                 </div>
               </Form.Label>
-              <Col lg={10}>
+              <Col lg={10} xs={10}>
                 <Form.Control
                   id="example-time"
                   type="time"
                   name="time"
-                  defaultValue="07:00"
+                  defaultValue={rowData.minEndTime}
                 />
               </Col>
             </Form.Group>
@@ -161,12 +164,12 @@ const EditScheduleModal = ({ show, handleClose }: EditScheduleModalProps) => {
                   End Time <span className="text-danger">*</span>
                 </div>
               </Form.Label>
-              <Col lg={10}>
+              <Col lg={10} xs={10}>
                 <Form.Control
                   id="example-time"
                   type="time"
                   name="time"
-                  defaultValue="18:00"
+                  defaultValue={rowData.endTime}
                 />
               </Col>
             </Form.Group>
@@ -176,12 +179,12 @@ const EditScheduleModal = ({ show, handleClose }: EditScheduleModalProps) => {
                   Max End Time <span className="text-danger">*</span>
                 </div>
               </Form.Label>
-              <Col lg={10}>
+              <Col lg={10} xs={10}>
                 <Form.Control
                   id="example-time"
                   type="time"
                   name="time"
-                  defaultValue="06:32"
+                  defaultValue={rowData.maxEndTime}
                 />
               </Col>
             </Form.Group>
@@ -194,7 +197,11 @@ const EditScheduleModal = ({ show, handleClose }: EditScheduleModalProps) => {
                 </div>
               </Form.Label>
               <Col lg={4}>
-                <Form.Control type="tel" name="tel" defaultValue="45" />
+                <Form.Control
+                  type="tel"
+                  name="tel"
+                  defaultValue={rowData.breakTime}
+                />
               </Col>
             </Form.Group>
           </div>
@@ -207,6 +214,7 @@ const EditScheduleModal = ({ show, handleClose }: EditScheduleModalProps) => {
                 <Form.Check // prettier-ignore
                   type="checkbox"
                   label="Recuter Shift"
+                  defaultChecked={rowData.recuterShift}
                 />
               </Col>
             </Form.Group>
@@ -215,49 +223,56 @@ const EditScheduleModal = ({ show, handleClose }: EditScheduleModalProps) => {
                 className="me-1" // prettier-ignore
                 type="checkbox"
                 label="M"
-                defaultChecked
+                defaultChecked={rowData.M}
               />
               <Form.Check
                 className="me-1" // prettier-ignore
                 type="checkbox"
                 label="T"
-                defaultChecked
+                defaultChecked={rowData.T}
               />
               <Form.Check
                 className="me-1" // prettier-ignore
                 type="checkbox"
                 label="W"
-                defaultChecked
+                defaultChecked={rowData.W}
               />
               <Form.Check
                 className="me-1" // prettier-ignore
                 type="checkbox"
                 label="T"
-                defaultChecked
+                defaultChecked={rowData.TT}
               />
               <Form.Check
                 className="me-1" // prettier-ignore
                 type="checkbox"
                 label="F"
-                defaultChecked
+                defaultChecked={rowData.F}
               />
               <Form.Check
                 className="me-1" // prettier-ignore
                 type="checkbox"
                 label="S"
+                defaultChecked={rowData.S}
               />
               <Form.Check
                 className="me-1" // prettier-ignore
                 type="checkbox"
                 label="S"
+                defaultChecked={rowData.S}
               />
             </div>
             <Form.Group as={Col} className="mb-3 mw-100">
               <Form.Label lg={2} htmlFor="example-date">
                 End On <span className="text-danger">*</span>
               </Form.Label>
-              <Col lg={10}>
-                <Form.Control id="example-date" type="date" name="date" />
+              <Col lg={10} xs={10}>
+                <Form.Control
+                  id="example-date"
+                  type="date"
+                  name="date"
+                  defaultValue={rowData.endOn}
+                />
               </Col>
             </Form.Group>
             <Form.Group as={Col} className="mb-3">

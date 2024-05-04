@@ -1,23 +1,12 @@
-import React from "react";
 import { Modal } from "react-bootstrap";
-import {
-  Row,
-  Col,
-  Card,
-  Form,
-  FloatingLabel,
-  InputGroup,
-  Button,
-} from "react-bootstrap";
-import "./shiftSchedule.css";
-// images
-// import img1 from "../../../assets/images/users/avatar-2.jpg";
+import { Row, Col, Form } from "react-bootstrap";
 
-interface VideocallModalProps {
+interface AddShiftModalProps {
   show: boolean;
   handleClose: () => void;
 }
-const AddScheduleModal = ({ show, handleClose }: VideocallModalProps) => {
+
+const AddShiftModal = ({ show, handleClose }: AddShiftModalProps) => {
   return (
     <Modal
       //   centered
@@ -28,15 +17,12 @@ const AddScheduleModal = ({ show, handleClose }: VideocallModalProps) => {
     >
       <Modal.Header className="mb-2 justify-content-start">
         <div>
-          <span id="addScheduleTitle">Add Schedule</span>
+          <span id="addScheduleTitle">Add Shift</span>
         </div>
       </Modal.Header>
       <Form className="form-horizontal">
         <Row>
-          <div
-            className="row p-10"
-            style={{ marginLeft: "16px", marginRight: "16px" }}
-          >
+          <div className="row p-10" style={{ marginLeft: "16px" }}>
             <Form.Group as={Col} className="mb-3">
               <Form.Label lg={2}>
                 <div className="d-flex">
@@ -63,8 +49,8 @@ const AddScheduleModal = ({ show, handleClose }: VideocallModalProps) => {
               </Form.Label>
               <Col lg={11} xs={11}>
                 <Form.Select>
-                  <option>All Development</option>
-                  <option>Finance</option>
+                  <option>Rish mail</option>
+                  <option>Jhone Smith</option>
                   <option>Finance Management</option>
                   <option>Hr and Finance</option>
                   <option>ITech</option>
@@ -89,11 +75,10 @@ const AddScheduleModal = ({ show, handleClose }: VideocallModalProps) => {
               </Form.Label>
               <Col lg={11} xs={11}>
                 <Form.Select>
-                  <option>All Development</option>
-                  <option>Finance</option>
-                  <option>Finance Management</option>
-                  <option>Hr and Finance</option>
-                  <option>ITech</option>
+                  <option>10'o clock shift</option>
+                  <option>10:30 Shift</option>
+                  <option>Daily Shift</option>
+                  <option>New Shift</option>
                 </Form.Select>
               </Col>
             </Form.Group>
@@ -163,18 +148,85 @@ const AddScheduleModal = ({ show, handleClose }: VideocallModalProps) => {
             </Form.Group>
           </div>
           <div className="row p-10" style={{ marginLeft: "16px" }}>
-            <Form.Group as={Col} className="mb-3">
-              <Form.Label column lg={2} htmlFor="example-time">
+            <Form.Group as={Row} className="mb-3">
+              <Form.Label lg={2}>
                 <div className="d-flex">
                   Break_Time <span className="text-danger">*</span>
                 </div>
               </Form.Label>
-              <Col lg={3} xs={3}>
-                <Form.Control id="example-time" type="time" name="time" />
+              <Col lg={4}>
+                <Form.Control type="tel" name="tel" />
               </Col>
             </Form.Group>
           </div>
           <div className="col p-10" style={{ marginLeft: "30px" }}>
+            <Form.Group as={Col} className="mb-3">
+              {/* <Form.Label column lg={2} htmlFor="example-time">
+                Publish
+              </Form.Label> */}
+              <Col lg={3}>
+                <Form.Check // prettier-ignore
+                  type="checkbox"
+                  label="Recuter Shift"
+                />
+              </Col>
+            </Form.Group>
+            <div className="d-flex">
+              <Form.Check
+                className="me-1" // prettier-ignore
+                type="checkbox"
+                label="M"
+              />
+              <Form.Check
+                className="me-1" // prettier-ignore
+                type="checkbox"
+                label="T"
+              />
+              <Form.Check
+                className="me-1" // prettier-ignore
+                type="checkbox"
+                label="W"
+              />
+              <Form.Check
+                className="me-1" // prettier-ignore
+                type="checkbox"
+                label="T"
+              />
+              <Form.Check
+                className="me-1" // prettier-ignore
+                type="checkbox"
+                label="F"
+              />
+              <Form.Check
+                className="me-1" // prettier-ignore
+                type="checkbox"
+                label="S"
+              />
+              <Form.Check
+                className="me-1" // prettier-ignore
+                type="checkbox"
+                label="S"
+              />
+            </div>
+            <Form.Group as={Col} className="mb-3 mw-100">
+              <Form.Label lg={2} htmlFor="example-date">
+                End On <span className="text-danger">*</span>
+              </Form.Label>
+              <Col lg={10} xs={10}>
+                <Form.Control id="example-date" type="date" name="date" />
+              </Col>
+            </Form.Group>
+            <Form.Group as={Col} className="mb-3">
+              {/* <Form.Label column lg={2} htmlFor="example-time">
+                Publish
+              </Form.Label> */}
+              <Col lg={3}>
+                <Form.Check // prettier-ignore
+                  type="checkbox"
+                  label="Indefinite"
+                />
+              </Col>
+            </Form.Group>
             <Form.Group as={Col} className="mb-3">
               <Form.Label column lg={2} htmlFor="example-time">
                 Accept Extra Hours
@@ -226,4 +278,4 @@ const AddScheduleModal = ({ show, handleClose }: VideocallModalProps) => {
   );
 };
 
-export default AddScheduleModal;
+export default AddShiftModal;
