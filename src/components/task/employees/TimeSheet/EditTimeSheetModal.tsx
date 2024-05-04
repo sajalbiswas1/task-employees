@@ -95,7 +95,12 @@ const EditTimeSheetModal = ({
                   Deadline<span className="text-danger">*</span>
                 </Form.Label>
                 <Col lg={11}>
-                  <Form.Control id="example-date" type="date" name="date" />
+                  <Form.Control
+                    id="example-date"
+                    type="date"
+                    name="date"
+                    defaultValue="2024-05-02"
+                  />
                 </Col>
               </Form.Group>
 
@@ -121,7 +126,12 @@ const EditTimeSheetModal = ({
                   Text area
                 </Form.Label>
                 <Col lg={12}>
-                  <Form.Control as="textarea" rows={5} id="example-textarea" />
+                  <Form.Control
+                    as="textarea"
+                    rows={5}
+                    id="example-textarea"
+                    defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                  />
                 </Col>
               </Form.Group>
             </div>

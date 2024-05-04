@@ -67,6 +67,7 @@ const columns = [
             <EditDepartmentModal
               newTaskModal={newTaskModal}
               toggleNewTaskModal={toggleNewTaskModal}
+              rowData={row.original}
             />
           )}
         </>

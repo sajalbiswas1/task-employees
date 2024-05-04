@@ -33,6 +33,7 @@ const columns = [
     sort: false,
     headerClassName: "text-end",
     Cell: ({ row }: any) => {
+      console.log(row.original);
       const [showProfileModal, setShowProfileModal] = useState<boolean>(false);
       const handleProfileModalShow = () => setShowProfileModal(true);
 
@@ -70,6 +71,7 @@ const columns = [
             <EditDesignations
               newTaskModal={newTaskModal}
               toggleNewTaskModal={toggleNewTaskModal}
+              rowData={row.original}
             />
           )}
         </>

@@ -5,11 +5,13 @@ import { FormInput } from "../../../../components/";
 interface AddNewTaskProps {
   newTaskModal: boolean;
   toggleNewTaskModal: () => void;
+  rowData: any;
 }
 
 const EditDesignations = ({
   newTaskModal,
   toggleNewTaskModal,
+  rowData,
 }: AddNewTaskProps) => {
   return (
     <Modal show={newTaskModal} onHide={toggleNewTaskModal} centered>
@@ -24,6 +26,7 @@ const EditDesignations = ({
             placeholder="Enter title"
             type="text"
             containerClass="mb-3"
+            defaultValue={rowData.department}
             // register={register}
             key="title"
             // errors={errors}
@@ -35,6 +38,7 @@ const EditDesignations = ({
             type="select"
             containerClass="mb-3"
             key="priority"
+            defaultValue={rowData.designation}
           >
             <option>All Development</option>
             <option>Finance</option>

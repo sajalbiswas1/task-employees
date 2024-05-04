@@ -13,7 +13,6 @@ const EditScheduleModal = ({
   handleClose,
   rowData,
 }: EditScheduleModalProps) => {
-  console.log("row data", rowData);
   return (
     <Modal
       //   centered
